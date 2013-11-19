@@ -1,7 +1,5 @@
 dep 'bootstrap' do
   requires 'homebrew'
-
-  requires 'vim.bin'
-  requires 'ack.bin'
+  requires 'all-packaged-apps'
 end
 
