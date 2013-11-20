@@ -10,7 +10,8 @@ packaged_apps = %w{
 
 packaged_apps_alt_provides = {
   "leiningen" => ["lein"],
-  "sqlite" => ["sqlite3"]
+  "sqlite" => ["sqlite3"],
+  "macvim" => ["mvim"]
 }
 
 packaged_apps.each do |app|
