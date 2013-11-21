@@ -1,4 +1,4 @@
-dep 'bootstrap' do
+dep 'cape-town' do
   requires 'homebrew'
   requires 'all-packaged-apps'
   requires 'dots'
