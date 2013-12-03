@@ -125,8 +125,17 @@ dep 'fast-key-repeat' do
 end
 
 dep 'capslock-to-ctrl' do
+  def vendor_and_product_id
+    keyboard_info = shell("ioreg -n IOHIDKeyboard -r")
+    vendor_id = keyboard_info.scan(/"VendorID" = (\d+)/).flatten.first
+    product_id = keyboard_info.scan(/"ProductID" = (\d+)/).flatten.first
+
+    [vendor_id, product_id]
+  end
+
   met? {
-    cmd = "defaults -currentHost read -g com.apple.keyboard.modifiermapping.1452-610-0"
+    vendor_id, product_id = vendor_and_product_id
+    cmd = "defaults -currentHost read -g com.apple.keyboard.modifiermapping.#{vendor_id}-#{product_id}-0"
     shell?(cmd) && shell(cmd) ==
 %Q{(
         {
@@ -137,7 +146,8 @@ dep 'capslock-to-ctrl' do
   }
 
   meet {
-    shell("defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-610-0 -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'")
+    vendor_id, product_id = vendor_and_product_id
+    shell("defaults -currentHost write -g com.apple.keyboard.modifiermapping.#{vendor_id}-#{product_id}-0 -array '<dict><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer><key>HIDKeyboardModifierMappingDst</key><integer>2</integer></dict>'")
   }
 end
 
