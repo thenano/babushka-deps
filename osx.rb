@@ -73,6 +73,18 @@ dep 'move-dock-right' do
   }
 end
 
+dep 'auto-hide-dock' do
+  met? {
+    shell?("defaults read com.apple.Dock autohide") &&
+      shell("defaults read com.apple.Dock autohide") == "1"
+  }
+
+  meet {
+    shell("defaults write com.apple.Dock autohide 1")
+    shell("killall -HUP Dock")
+  }
+end
+
 dep 'disable-widgets' do
   met? {
     cmd = "defaults read com.apple.dashboard mcx-disabled"
@@ -144,6 +156,7 @@ dep 'all-osx-settings' do
   requires 'fast-key-repeat'
   requires 'disable-widgets'
   requires 'move-dock-right'
+  requires 'auto-hide-dock'
   requires 'enable-assistive-devices'
   requires 'change-shell-to-zsh'
 end
