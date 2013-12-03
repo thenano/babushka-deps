@@ -1,3 +1,7 @@
+dep 'MenuMeters.app' do
+  source 'http://www.ragingmenace.com/software/download/MenuMeters.dmg'
+end
+
 dep 'VLC.app' do
   source "http://get.videolan.org/vlc/2.1.1/macosx/vlc-2.1.1.dmg"
 end
@@ -41,6 +45,7 @@ dep 'Transmission.app' do
 end
 
 dep 'all-osx-apps' do
+  requires 'MenuMeters.app'
   requires 'VLC.app'
   requires 'VirtualBox.app'
   requires 'Vagrant.app'
