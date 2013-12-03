@@ -1,3 +1,17 @@
+dep 'VirtualBox.app' do
+  source "http://download.virtualbox.org/virtualbox/4.3.4/VirtualBox-4.3.4-91027-OSX.dmg"
+end
+
+dep 'Vagrant.app' do
+  requires 'VirtualBox.app'
+
+  met? {
+    "/usr/bin/vagrant".p.exists?
+  }
+
+  source "http://files.vagrantup.com/packages/a40522f5fabccb9ddabad03d836e120ff5d14093/Vagrant-1.3.5.dmg"
+end
+
 dep 'Dropbox.app' do
   source "https://www.dropbox.com/download?plat=mac"
 end
@@ -23,6 +37,8 @@ dep 'Transmission.app' do
 end
 
 dep 'all-osx-apps' do
+  requires 'VirtualBox.app'
+  requires 'Vagrant.app'
   requires 'iTerm.app'
   requires 'Alfred.app'
   requires 'Dropbox.app'
