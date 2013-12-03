@@ -56,6 +56,16 @@ dep 'all-osx-apps' do
   requires 'Transmission.app'
 end
 
+dep 'enable-full-disk-encryption' do
+  met? {
+    shell?("sudo fdesetup status").include? "On"
+  }
+
+  meet {
+    shell("sudo fdesetup enable")
+  }
+end
+
 dep 'set-dock-magnification' do
   met? {
     shell?("defaults read com.apple.dock magnification") &&
