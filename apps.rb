@@ -6,12 +6,12 @@ packaged_apps = %w{
   wget
   nethack
   tree
+  gpg
 }
 
 packaged_apps_alt_provides = {
   "leiningen" => ["lein"],
-  "sqlite" => ["sqlite3"],
-  "macvim" => ["mvim"]
+  "sqlite" => ["sqlite3"]
 }
 
 packaged_apps.each do |app|
