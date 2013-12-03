@@ -6,12 +6,12 @@ dep 'VLC.app' do
   source "http://get.videolan.org/vlc/2.1.1/macosx/vlc-2.1.1.dmg"
 end
 
-dep 'VirtualBox.app' do
+dep 'VirtualBox.installer' do
   source "http://download.virtualbox.org/virtualbox/4.3.4/VirtualBox-4.3.4-91027-OSX.dmg"
 end
 
 dep 'Vagrant.app' do
-  requires 'VirtualBox.app'
+  requires 'VirtualBox.installer'
 
   met? {
     "/usr/bin/vagrant".p.exists?
@@ -47,7 +47,7 @@ end
 dep 'all-osx-apps' do
   requires 'MenuMeters.app'
   requires 'VLC.app'
-  requires 'VirtualBox.app'
+  requires 'VirtualBox.installer'
   requires 'Vagrant.app'
   requires 'iTerm.app'
   requires 'Alfred.app'
