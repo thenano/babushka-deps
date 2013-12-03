@@ -1,3 +1,7 @@
+dep 'VLC.app' do
+  source "http://get.videolan.org/vlc/2.1.1/macosx/vlc-2.1.1.dmg"
+end
+
 dep 'VirtualBox.app' do
   source "http://download.virtualbox.org/virtualbox/4.3.4/VirtualBox-4.3.4-91027-OSX.dmg"
 end
@@ -37,6 +41,7 @@ dep 'Transmission.app' do
 end
 
 dep 'all-osx-apps' do
+  requires 'VLC.app'
   requires 'VirtualBox.app'
   requires 'Vagrant.app'
   requires 'iTerm.app'
