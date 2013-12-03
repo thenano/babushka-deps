@@ -4,7 +4,6 @@ packaged_apps = %w{
   ack
   pass
   wget
-  nethack
   tree
   gpg
 }
@@ -22,6 +21,28 @@ end
 
 packaged_apps_alt_provides.each do |app, ps|
   dep "#{app}.bin" do
+    installs app
+    provides ps
+  end
+end
+
+dep "homebrew-games" do
+  met? {
+    shell("brew tap").include? "homebrew/games"
+  }
+
+  meet {
+    shell("brew tap homebrew/games")
+  }
+end
+
+games = %w{
+  nethack
+}
+
+games.each do |app, ps|
+  dep "#{app}.bin" do
+    requires "homebrew-games"
     installs app
     provides ps
   end

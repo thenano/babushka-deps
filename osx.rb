@@ -49,6 +49,7 @@ dep 'all-osx-apps' do
   requires 'VLC.app'
   requires 'VirtualBox.installer'
   requires 'Vagrant.app'
+  requires 'Spectacle.app'
   requires 'iTerm.app'
   requires 'Alfred.app'
   requires 'Dropbox.app'
@@ -170,9 +171,9 @@ dep 'change-shell-to-zsh' do
   }
 
   meet {
-    installed_zsh = shell("brew info zsh").split("\n")[2].split(/\s/)[0]
+    installed_zsh = shell("brew info zsh").split("\n")[2].split(/\s/)[0] + "/bin/zsh"
     shell("chsh -s #{installed_zsh}")
-    shell("sudo echo '#{installed_zsh}' >> /etc/shells")
+    shell("echo '#{installed_zsh}' >> /etc/shells", :sudo => true)
   }
 end
 
