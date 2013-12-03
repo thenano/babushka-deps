@@ -15,5 +15,6 @@ dep 'cape-town' do
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
+  requires 'enable-full-disk-encryption'
 end
 
