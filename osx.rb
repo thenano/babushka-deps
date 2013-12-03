@@ -75,12 +75,12 @@ end
 
 dep 'auto-hide-dock' do
   met? {
-    shell?("defaults read com.apple.Dock autohide") &&
-      shell("defaults read com.apple.Dock autohide") == "1"
+    shell?("defaults read com.apple.dock autohide") &&
+      shell("defaults read com.apple.dock autohide") == "1"
   }
 
   meet {
-    shell("defaults write com.apple.Dock autohide 1")
+    shell("defaults write com.apple.dock autohide -bool true")
     shell("killall -HUP Dock")
   }
 end
