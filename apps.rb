@@ -6,6 +6,7 @@ packaged_apps = %w{
   wget
   tree
   gpg
+  emacs
 }
 
 packaged_apps_alt_provides = {

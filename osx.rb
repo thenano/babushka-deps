@@ -3,7 +3,7 @@ dep 'MenuMeters.app' do
 end
 
 dep 'VLC.app' do
-  source "http://get.videolan.org/vlc/2.1.1/macosx/vlc-2.1.1.dmg"
+  source "http://get.videolan.org/vlc/2.1.4/macosx/vlc-2.1.4.dmg"
 end
 
 dep 'VirtualBox.installer' do
@@ -17,7 +17,7 @@ dep 'Vagrant.app' do
     "/usr/bin/vagrant".p.exists?
   }
 
-  source "http://files.vagrantup.com/packages/a40522f5fabccb9ddabad03d836e120ff5d14093/Vagrant-1.3.5.dmg"
+  source "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.2.dmg"
 end
 
 dep 'Dropbox.app' do
@@ -25,11 +25,11 @@ dep 'Dropbox.app' do
 end
 
 dep 'Alfred.app' do
-  source "http://cachefly.alfredapp.com/Alfred_2.1.1_227.zip"
+  source "http://cachefly.alfredapp.com/Alfred_2.3_264.zip"
 end
 
 dep 'iTerm.app' do
-  source "http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip"
+  source "http://www.iterm2.com/downloads/stable/iTerm2_v1_0_0.zip"
 end
 
 dep 'Spectacle.app' do
@@ -37,11 +37,11 @@ dep 'Spectacle.app' do
 end
 
 dep 'Chromium.app' do
-  source "https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/236234/chrome-mac.zip"
+  source "https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/273149/chrome-mac.zip"
 end
 
 dep 'Transmission.app' do
-  source 'http://download.transmissionbt.com/files/Transmission-2.82.dmg'
+  source 'https://transmission.cachefly.net/Transmission-2.83.dmg'
 end
 
 dep 'all-osx-apps' do
