@@ -3,11 +3,11 @@ dep 'MenuMeters.app' do
 end
 
 dep 'VLC.app' do
-  source "http://get.videolan.org/vlc/2.1.4/macosx/vlc-2.1.4.dmg"
+  source "http://get.videolan.org/vlc/2.2.0/macosx/vlc-2.2.0.dmg"
 end
 
 dep 'VirtualBox.installer' do
-  source "http://download.virtualbox.org/virtualbox/4.3.4/VirtualBox-4.3.4-91027-OSX.dmg"
+  source "http://download.virtualbox.org/virtualbox/4.3.8/VirtualBox-4.3.8-92456-OSX.dmg"
 end
 
 dep 'Vagrant.app' do
@@ -17,7 +17,7 @@ dep 'Vagrant.app' do
     "/usr/bin/vagrant".p.exists?
   }
 
-  source "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.2.dmg"
+  source "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg"
 end
 
 dep 'Dropbox.app' do
@@ -25,23 +25,27 @@ dep 'Dropbox.app' do
 end
 
 dep 'Alfred.app' do
-  source "http://cachefly.alfredapp.com/Alfred_2.3_264.zip"
+  source "https://cachefly.alfredapp.com/Alfred_2.6_374.zip"
 end
 
 dep 'iTerm.app' do
-  source "http://www.iterm2.com/downloads/stable/iTerm2_v1_0_0.zip"
+  source "https://iterm2.com/downloads/stable/iTerm2_v2_0.zip"
 end
 
 dep 'Spectacle.app' do
-  source "https://s3.amazonaws.com/spectacle/downloads/Spectacle+0.8.4.zip"
+  source "https://s3.amazonaws.com/spectacle/downloads/Spectacle+0.8.8.zip"
 end
 
 dep 'Chromium.app' do
   source "https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/273149/chrome-mac.zip"
 end
 
+dep 'FirefoxDeveloperEdition.app' do
+  source "https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora/firefox-38.0a2.en-US.mac.dmg"
+end
+
 dep 'Transmission.app' do
-  source 'https://transmission.cachefly.net/Transmission-2.83.dmg'
+  source 'https://transmission.cachefly.net/Transmission-2.84.dmg'
 end
 
 dep 'all-osx-apps' do
@@ -55,6 +59,7 @@ dep 'all-osx-apps' do
   requires 'Dropbox.app'
   requires 'Chromium.app'
   requires 'Transmission.app'
+  requires 'FirefoxDeveloperEdition.app'
 end
 
 dep 'enable-full-disk-encryption' do
@@ -152,16 +157,6 @@ dep 'capslock-to-ctrl' do
   }
 end
 
-dep 'enable-assistive-devices' do
-  met? {
-    "/private/var/db/.AccessibilityAPIEnabled".p.exists?
-  }
-
-  meet {
-    shell "sudo touch /private/var/db/.AccessibilityAPIEnabled"
-  }
-end
-
 dep 'change-shell-to-zsh' do
   requires 'zsh.bin'
 
@@ -183,6 +178,5 @@ dep 'all-osx-settings' do
   requires 'disable-widgets'
   requires 'move-dock-right'
   requires 'auto-hide-dock'
-  requires 'enable-assistive-devices'
   requires 'change-shell-to-zsh'
 end

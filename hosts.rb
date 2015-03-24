@@ -1,4 +1,4 @@
-dep 'hostname' do
+dep 'cape-town.hostname' do
   met? {
     shell("hostname").include? "cape-town"
   }
@@ -11,10 +11,18 @@ end
 dep 'cape-town' do
   requires 'homebrew'
   requires 'all-packaged-apps'
-  requires 'hostname'
+  requires 'cape-town.hostname'
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
   requires 'enable-full-disk-encryption'
 end
 
+dep 'kakadu' do
+  requires 'homebrew'
+  requires 'all-packaged-apps'
+  requires 'dots'
+  requires 'all-osx-settings'
+  requires 'all-osx-apps'
+  requires 'enable-full-disk-encryption'
+end
