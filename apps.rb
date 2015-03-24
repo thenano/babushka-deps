@@ -48,7 +48,11 @@ dep 'vundle plugins up to date.vim' do
 end
 
 dep 'vundle up to date.repo' do
-  requires 'vim.bin'
-  source 'https://github.com/gmarik/Vundle.vim'
-  path '~/.vim/bundle/Vundle.vim'
+  met? {
+    '~/.vim/bundle/Vundle.vim'.p.exists?
+  }
+
+  meet {
+    git "https://github.com/gmarik/Vundle.vim", :to => '~/.vim/bundle/Vundle.vim'
+  }
 end
