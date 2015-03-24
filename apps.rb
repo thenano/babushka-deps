@@ -1,7 +1,6 @@
 packaged_apps = %w{
   zsh
   vim
-  ack
   pass
   wget
   tree
