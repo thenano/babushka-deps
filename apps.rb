@@ -38,4 +38,18 @@ end
 
 dep 'all-packaged-apps' do
   requires *(packaged_apps).map { |a| "#{a}.bin" }
+  requires 'vundle plugins up to date.vim'
+  requires 'vundle up to date.repo'
+end
+
+dep 'vundle plugins up to date.vim' do
+  requires 'vundle up to date.repo'
+
+  met? { shell? 'vim +PluginInstall! +PluginClean! +qall 2&> /dev/null' }
+end
+
+dep 'vundle up to date.repo' do
+  requires 'vim.bin'
+  source 'https://github.com/gmarik/Vundle.vim'
+  path '~/.vim/bundle/Vundle.vim'
 end
