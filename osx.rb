@@ -157,26 +157,10 @@ dep 'capslock-to-ctrl' do
   }
 end
 
-dep 'change-shell-to-zsh' do
-  requires 'zsh.bin'
-
-  met? {
-    current_shell = shell("echo $SHELL")
-    current_shell.include?("/usr/local") && current_shell.include?("zsh")
-  }
-
-  meet {
-    installed_zsh = shell("brew info zsh").split("\n")[2].split(/\s/)[0] + "/bin/zsh"
-    shell("chsh -s #{installed_zsh}")
-    shell("echo '#{installed_zsh}' >> /etc/shells", :sudo => true)
-  }
-end
-
 dep 'all-osx-settings' do
   requires 'capslock-to-ctrl'
   requires 'fast-key-repeat'
   requires 'disable-widgets'
   requires 'move-dock-right'
   requires 'auto-hide-dock'
-  requires 'change-shell-to-zsh'
 end
