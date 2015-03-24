@@ -68,7 +68,7 @@ dep 'enable-full-disk-encryption' do
   }
 
   meet {
-    shell("sudo fdesetup enable")
+    shell("sudo fdesetup enable -user `whoami`")
   }
 end
 
