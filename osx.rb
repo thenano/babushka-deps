@@ -48,6 +48,10 @@ dep 'Transmission.app' do
   source 'https://transmission.cachefly.net/Transmission-2.84.dmg'
 end
 
+dep 'MacVim.app' do
+  source 'https://github.com/b4winckler/macvim/releases/download/snapshot-73/MacVim-snapshot-73-Mavericks.tbz'
+end
+
 dep 'all-osx-apps' do
   requires 'MenuMeters.app'
   requires 'VLC.app'
@@ -60,6 +64,7 @@ dep 'all-osx-apps' do
   requires 'Chromium.app'
   requires 'Transmission.app'
   requires 'FirefoxDeveloperEdition.app'
+  requires 'MacVim.app'
 end
 
 dep 'enable-full-disk-encryption' do
