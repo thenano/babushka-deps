@@ -4,8 +4,10 @@ dep 'dots' do
   }
 
   meet {
-    git "https://github.com/samfoo/dots.git", :to => '~/.dots'
-    shell 'find ~/.dots -d 1 -name ".*" | grep -v ".git$" | grep -v ".gitignore" | xargs -I % ln -s % ~'
+    git "https://github.com/thenano/dots.git", :to => '~/.dots'
+    shell 'ln -s ~/.dots/bash/bashprofile ~/.bash_profile'
+    shell 'ln -s ~/.dots/git/gitconfig ~/.gitconfig'
+    shell 'ln -s ~/.dots/git/gitignore ~/.gitignore'
   }
 end
 
