@@ -38,6 +38,14 @@ end
 
 dep 'Sublime Text.app' do
   source 'http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg'
+
+  meet {
+    shell('sudo ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl')
+  }
+end
+
+dep 'Google Drive.app' do
+  source 'http://dl.google.com/drive/installgoogledrive.dmg'
 end
 
 dep 'all-osx-apps' do
@@ -48,6 +56,7 @@ dep 'all-osx-apps' do
   requires 'Transmission.app'
   requires 'FirefoxDeveloperEdition.app'
   requires 'Sublime Text.app'
+  requires 'Google Drive.app'
 end
 
 dep 'enable-full-disk-encryption' do
