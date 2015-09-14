@@ -24,7 +24,7 @@ dep 'Dropbox.app' do
   source "https://www.dropbox.com/download?plat=mac"
 end
 
-dep 'Chrome.app' do
+dep 'Google Chrome.app' do
   source "http://dl.google.com/chrome/mac/dev/GoogleChrome.dmg"
 end
 
@@ -36,7 +36,7 @@ dep 'Transmission.app' do
   source 'https://transmission.cachefly.net/Transmission-2.84.dmg'
 end
 
-dep 'SublimeText.app' do
+dep 'Sublime Text.app' do
   source 'http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg'
 end
 
@@ -44,12 +44,10 @@ dep 'all-osx-apps' do
   requires 'MenuMeters.app'
   requires 'VLC.app'
   requires 'VirtualBox.installer'
-  requires 'Vagrant.app'
-  requires 'Dropbox.app'
-  requires 'Chrome.app'
+  requires 'Google Chrome.app'
   requires 'Transmission.app'
   requires 'FirefoxDeveloperEdition.app'
-  requires 'SublimeText.app'
+  requires 'Sublime Text.app'
 end
 
 dep 'enable-full-disk-encryption' do
