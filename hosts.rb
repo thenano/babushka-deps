@@ -1,26 +1,17 @@
-dep 'cape-town.hostname' do
+dep 'tw-robot.hostname' do
   met? {
-    shell("hostname").include? "cape-town"
+    shell("hostname").include? "tw-robot"
   }
 
   meet {
-    shell("sudo scutil --set HostName cape-town")
+    shell("sudo scutil --set HostName tw-robot")
   }
 end
 
-dep 'cape-town' do
+dep 'tw-robot' do
   requires 'homebrew'
   requires 'all-packaged-apps'
-  requires 'cape-town.hostname'
-  requires 'dots'
-  requires 'all-osx-settings'
-  requires 'all-osx-apps'
-  requires 'enable-full-disk-encryption'
-end
-
-dep 'kakadu' do
-  requires 'homebrew'
-  requires 'all-packaged-apps'
+  requires 'tw-robot.hostname'
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
