@@ -3,6 +3,8 @@ packaged_apps = %w{
   wget
   tree
   gpg
+  rbenv
+  ruby-build
 }
 
 packaged_apps.each do |app|
