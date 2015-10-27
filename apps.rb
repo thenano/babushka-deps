@@ -5,6 +5,7 @@ packaged_apps = %w{
   gpg
   rbenv
   ruby-build
+  node
 }
 
 packaged_apps.each do |app|
