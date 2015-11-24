@@ -15,5 +15,6 @@ dep 'tw-robot' do
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
+  requires 'all-fonts'
   requires 'enable-full-disk-encryption'
 end
