@@ -10,14 +10,14 @@ dep 'VirtualBox.installer' do
   source "http://download.virtualbox.org/virtualbox/5.0.4/VirtualBox-5.0.4-102546-OSX.dmg"
 end
 
-dep 'Vagrant.app' do
+dep 'Vagrant.installer' do
   requires 'VirtualBox.installer'
 
   met? {
-    "/usr/bin/vagrant".p.exists?
+    "/usr/local/bin/vagrant".p.exists?
   }
 
-  source "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4.dmg"
+  source "https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4.dmg"
 end
 
 dep 'Dropbox.app' do
@@ -52,6 +52,7 @@ dep 'all-osx-apps' do
   requires 'MenuMeters.app'
   requires 'VLC.app'
   requires 'VirtualBox.installer'
+  requires 'Vagrant.installer'
   requires 'Google Chrome.app'
   requires 'Transmission.app'
   requires 'FirefoxDeveloperEdition.app'
