@@ -6,6 +6,7 @@ packaged_apps = %w{
   rbenv
   ruby-build
   node
+  git
 }
 
 packaged_apps.each do |app|
