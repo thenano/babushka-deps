@@ -10,8 +10,8 @@ dep 'Google Chrome.app' do
   source "http://dl.google.com/chrome/mac/dev/GoogleChrome.dmg"
 end
 
-dep 'FirefoxDeveloperEdition.app' do
-  source "https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=osx&lang=en-US"
+dep 'Firefox.app' do
+  source "https://www.mozilla.org/en-US/firefox/new/?scene=2"
 end
 
 dep 'Atom.app' do
@@ -26,7 +26,7 @@ dep 'Docker.app' do
   source 'https://download.docker.com/mac/stable/Docker.dmg'
 end
 
-dep 'Intellij.app' do
+dep 'IntelliJ IDEA.app' do
   source 'https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
 end
 
@@ -34,11 +34,11 @@ dep 'all-osx-apps' do
   requires 'VLC.app'
   requires 'VirtualBox.installer'
   requires 'Google Chrome.app'
-  requires 'FirefoxDeveloperEdition.app'
+  requires 'Firefox.app'
   requires 'Atom.app'
   requires 'Google Drive.app'
   requires 'Docker.app'
-  requires 'Intellij.app'
+  requires 'IntelliJ IDEA.app'
 end
 
 dep 'enable-full-disk-encryption' do
@@ -88,8 +88,9 @@ end
 
 dep 'fast-key-repeat' do
   met? {
-    2 == shell('defaults read NSGlobalDomain KeyRepeat').to_i &&
-      12 == shell('defaults read NSGlobalDomain InitialKeyRepeat').to_i
+    shell?('defaults read NSGlobalDomain KeyRepeat') &&
+      2 == shell('defaults read NSGlobalDomain KeyRepeat').to_i &&
+        12 == shell('defaults read NSGlobalDomain InitialKeyRepeat').to_i
   }
 
   meet {
@@ -97,6 +98,19 @@ dep 'fast-key-repeat' do
     shell('defaults write NSGlobalDomain InitialKeyRepeat -int 12')
   }
 end
+
+dep 'set-correct-fn-keys' do
+  met? {
+    shell?("defaults read -g com.apple.keyboard.fnState") &&
+      shell("defaults read -g com.apple.keyboard.fnState") == "1"
+  }
+
+  meet {
+    shell("defaults write -g com.apple.keyboard.fnState -bool true")
+    shell("killall -HUP Dock")
+  }
+end
+
 
 dep 'all-osx-settings' do
   requires 'fast-key-repeat'
