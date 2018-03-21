@@ -42,12 +42,12 @@ dep 'open-sans.font' do
 end
 
 dep 'hack.font' do
-  source 'https://github.com/chrissimpkins/Hack/releases/download/v2.015/Hack-v2_015-ttf.zip'
+  source 'https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip'
   ttf_filename 'Hack-Regular.ttf'
 end
 
 dep 'all-fonts' do
   requires 'inconsolata.font'
   requires 'open-sans.font'
-  # requires 'hack.font'
+  requires 'hack.font'
 end
