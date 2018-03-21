@@ -5,6 +5,7 @@ packaged_apps = %w{
   rbenv
   ruby-build
   pyenv
+  yarn
 }
 
 packaged_apps.each do |app|
