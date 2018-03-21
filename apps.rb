@@ -1,5 +1,4 @@
 packaged_apps = %w{
-  pass
   wget
   tree
   gpg
@@ -8,6 +7,7 @@ packaged_apps = %w{
   nvm
   git
   pyenv
+  blackbox
 }
 
 packaged_apps.each do |app|
