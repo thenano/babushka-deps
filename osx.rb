@@ -19,7 +19,7 @@ dep 'Atom.app' do
 end
 
 dep 'Google Drive.app' do
-  source 'http://dl.google.com/drive/installgoogledrive.dmg'
+  source 'http://dl.google.com/drive/installbackupandsync.dmg'
 end
 
 dep 'Docker.app' do
