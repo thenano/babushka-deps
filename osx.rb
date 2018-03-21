@@ -18,7 +18,7 @@ dep 'Atom.app' do
   source 'https://atom.io/download/mac'
 end
 
-dep 'Google Drive.app' do
+dep 'Backup and Sync.app' do
   source 'http://dl.google.com/drive/installbackupandsync.dmg'
 end
 
@@ -27,7 +27,7 @@ dep 'Docker.app' do
 end
 
 dep 'IntelliJ IDEA.app' do
-  source 'https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
+  source 'https://download.jetbrains.com/idea/ideaIU-2017.3.5.dmg'
 end
 
 dep 'all-osx-apps' do
@@ -36,7 +36,7 @@ dep 'all-osx-apps' do
   requires 'Google Chrome.app'
   requires 'Firefox.app'
   requires 'Atom.app'
-  requires 'Google Drive.app'
+  requires 'Backup and Sync.app'
   requires 'Docker.app'
   requires 'IntelliJ IDEA.app'
 end
