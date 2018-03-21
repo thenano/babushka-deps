@@ -22,6 +22,10 @@ dep 'Google Drive.app' do
   source 'http://dl.google.com/drive/installgoogledrive.dmg'
 end
 
+dep 'Docker.app' do
+  source 'https://download.docker.com/mac/stable/Docker.dmg'
+end
+
 dep 'all-osx-apps' do
   requires 'VLC.app'
   requires 'VirtualBox.installer'
@@ -29,6 +33,7 @@ dep 'all-osx-apps' do
   requires 'FirefoxDeveloperEdition.app'
   requires 'Atom.app'
   requires 'Google Drive.app'
+  requires 'Docker.app'
 end
 
 dep 'enable-full-disk-encryption' do
