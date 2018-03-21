@@ -5,7 +5,7 @@ packaged_apps = %w{
   gpg
   rbenv
   ruby-build
-  node
+  nvm
   git
 }
 
@@ -27,4 +27,3 @@ dep 'bash-completion.bin' do
 
   installs 'bash-completion'
 end
-
