@@ -7,7 +7,6 @@ packaged_apps = %w{
   nvm
   git
   pyenv
-  blackbox
 }
 
 packaged_apps.each do |app|
@@ -16,9 +15,15 @@ packaged_apps.each do |app|
   end
 end
 
+dep 'blackbox.bin' do
+  installs 'blackbox'
+  provides 'blackbox_initialize'
+end
+
 dep 'all-packaged-apps' do
   requires *(packaged_apps).map { |a| "#{a}.bin" }
   requires 'bash-completion.bin'
+  requires 'blackbox.bin'
 end
 
 dep 'bash-completion.bin' do
