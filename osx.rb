@@ -26,6 +26,10 @@ dep 'Docker.app' do
   source 'https://download.docker.com/mac/stable/Docker.dmg'
 end
 
+dep 'Intellij.app' do
+  source 'https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
+end
+
 dep 'all-osx-apps' do
   requires 'VLC.app'
   requires 'VirtualBox.installer'
@@ -34,6 +38,7 @@ dep 'all-osx-apps' do
   requires 'Atom.app'
   requires 'Google Drive.app'
   requires 'Docker.app'
+  requires 'Intellij.app'
 end
 
 dep 'enable-full-disk-encryption' do
