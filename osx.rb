@@ -111,9 +111,23 @@ dep 'set-correct-fn-keys' do
   }
 end
 
+dep 'set-ask-for-password-on-sleep' do
+  met? {
+    shell?('defaults read com.apple.screensaver askForPassword') &&
+      0 == shell('defaults read com.apple.screensaver askForPasswordDelay').to_i &&
+        "1" == shell('defaults read com.apple.screensaver askForPassword')
+  }
+
+  meet {
+    shell('defaults write com.apple.screensaver askForPasswordDelay -int 0')
+    shell('defaults write com.apple.screensaver askForPassword -bool true')
+  }
+end
 
 dep 'all-osx-settings' do
   requires 'fast-key-repeat'
   requires 'disable-widgets'
   requires 'auto-hide-dock'
+  requires 'set-correct-fn-keys'
+  requires 'set-ask-for-password-on-sleep'
 end
