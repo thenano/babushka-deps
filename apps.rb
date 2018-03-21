@@ -7,6 +7,7 @@ packaged_apps = %w{
   ruby-build
   nvm
   git
+  pyenv
 }
 
 packaged_apps.each do |app|
