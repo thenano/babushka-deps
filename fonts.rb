@@ -49,5 +49,5 @@ end
 dep 'all-fonts' do
   requires 'inconsolata.font'
   requires 'open-sans.font'
-  requires 'hack.font'
+  #requires 'hack.font'
 end

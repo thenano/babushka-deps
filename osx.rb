@@ -51,83 +51,96 @@ dep 'enable-full-disk-encryption' do
   }
 end
 
-dep 'set-dock-magnification' do
-  met? {
-    shell?("defaults read com.apple.dock magnification") &&
-      shell("defaults read com.apple.dock magnification").to_i == 1
-  }
+meta 'default' do
+  accepts_value_for :domain
+  accepts_value_for :default
+  accepts_value_for :value
+  accepts_value_for :type
 
-  meet {
-    shell("defaults write com.apple.dock magnification -integer 1")
+  template {
+    met? {
+      shell?("defaults read \"#{domain}\" #{default}") &&
+        shell("defaults read \"#{domain}\" #{default}") == value
+    }
+
+    meet {
+      shell("defaults write \"#{domain}\" #{default} -#{type} #{value}")
+    }
   }
 end
 
-dep 'auto-hide-dock' do
-  met? {
-    shell?("defaults read com.apple.dock autohide") &&
-      shell("defaults read com.apple.dock autohide") == "1"
-  }
 
-  meet {
-    shell("defaults write com.apple.dock autohide -bool true")
-    shell("killall -HUP Dock")
-  }
+dep 'set-dock-magnification.default' do
+  domain 'com.apple.dock'
+  default 'magnification'
+  value '1'
+  type 'integer'
 end
 
-dep 'disable-widgets' do
-  met? {
-    cmd = "defaults read com.apple.dashboard mcx-disabled"
-    shell?(cmd) &&
-      shell(cmd).to_i == 1
-  }
-
-  meet {
-    shell 'defaults write com.apple.dashboard mcx-disabled -boolean YES'
-  }
+dep 'auto-hide-dock.default' do
+  domain 'com.apple.dock'
+  default 'magnification'
+  value '1'
+  type 'integer'
 end
 
-dep 'fast-key-repeat' do
-  met? {
-    shell?('defaults read NSGlobalDomain KeyRepeat') &&
-      2 == shell('defaults read NSGlobalDomain KeyRepeat').to_i &&
-        12 == shell('defaults read NSGlobalDomain InitialKeyRepeat').to_i
-  }
-
-  meet {
-    shell('defaults write NSGlobalDomain KeyRepeat -int 2')
-    shell('defaults write NSGlobalDomain InitialKeyRepeat -int 12')
-  }
+dep 'disable-widgets.default' do
+  domain 'com.apple.dashboard'
+  default 'mcx-disabled'
+  value '1'
+  type 'integer'
 end
 
-dep 'set-correct-fn-keys' do
-  met? {
-    shell?("defaults read -g com.apple.keyboard.fnState") &&
-      shell("defaults read -g com.apple.keyboard.fnState") == "1"
-  }
-
-  meet {
-    shell("defaults write -g com.apple.keyboard.fnState -bool true")
-    shell("killall -HUP Dock")
-  }
+dep 'fast-key-repeat.default' do
+  domain 'NSGlobalDomain'
+  default 'KeyRepeat'
+  value '2'
+  type 'integer'
 end
 
-dep 'set-ask-for-password-on-sleep' do
-  met? {
-    shell?('defaults read com.apple.screensaver askForPassword') &&
-      0 == shell('defaults read com.apple.screensaver askForPasswordDelay').to_i &&
-        "1" == shell('defaults read com.apple.screensaver askForPassword')
-  }
+dep 'fast-key-initial-repeat.default' do
+  domain 'NSGlobalDomain'
+  default 'InitialKeyRepeat'
+  value '12'
+  type 'integer'
+end
 
-  meet {
-    shell('defaults write com.apple.screensaver askForPasswordDelay -int 0')
-    shell('defaults write com.apple.screensaver askForPassword -bool true')
-  }
+dep 'set-correct-fn-keys.default' do
+  domain 'Apple Global Domain'
+  default 'com.apple.keyboard.fnState'
+  value '1'
+  type 'integer'
+end
+
+dep 'set-ask-for-password-on-sleep.default' do
+  domain 'com.apple.screensaver'
+  default 'askForPassword'
+  value '1'
+  type 'integer'
+end
+
+dep 'set-ask-for-password-on-sleep-delay.default' do
+  domain 'com.apple.screensaver'
+  default 'askForPasswordDelay'
+  value '0'
+  type 'integer'
+end
+
+dep 'set-dark-theme.default' do
+  domain 'Apple Global Domain'
+  default 'AppleInterfaceStule'
+  value 'Dark'
+  type 'string'
 end
 
 dep 'all-osx-settings' do
-  requires 'fast-key-repeat'
-  requires 'disable-widgets'
-  requires 'auto-hide-dock'
-  requires 'set-correct-fn-keys'
-  requires 'set-ask-for-password-on-sleep'
+  requires 'set-dock-magnification.default'
+  requires 'auto-hide-dock.default'
+  requires 'disable-widgets.default'
+  requires 'fast-key-repeat.default'
+  requires 'fast-key-initial-repeat.default'
+  requires 'set-correct-fn-keys.default'
+  requires 'set-ask-for-password-on-sleep.default'
+  requires 'set-ask-for-password-on-sleep-delay.default'
+  requires 'set-dark-theme.default'
 end

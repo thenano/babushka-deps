@@ -4,8 +4,6 @@ packaged_apps = %w{
   gpg
   rbenv
   ruby-build
-  nvm
-  git
   pyenv
 }
 
@@ -15,15 +13,25 @@ packaged_apps.each do |app|
   end
 end
 
+dep 'git.bin' do
+  met? {
+    shell('$(brew --prefix git)/bin/git --version')
+  }
+
+  installs 'git'
+end
+
+dep 'nvm.bin' do
+  met? {
+    shell('brew --prefix nvm').p.exists?
+  }
+
+  installs 'nvm'
+end
+
 dep 'blackbox.bin' do
   installs 'blackbox'
   provides 'blackbox_initialize'
-end
-
-dep 'all-packaged-apps' do
-  requires *(packaged_apps).map { |a| "#{a}.bin" }
-  requires 'bash-completion.bin'
-  requires 'blackbox.bin'
 end
 
 dep 'bash-completion.bin' do
@@ -32,4 +40,12 @@ dep 'bash-completion.bin' do
   }
 
   installs 'bash-completion'
+end
+
+dep 'all-packaged-apps' do
+  requires *(packaged_apps).map { |a| "#{a}.bin" }
+  requires 'bash-completion.bin'
+  requires 'blackbox.bin'
+  requires 'nvm.bin'
+  requires 'git.bin'
 end
