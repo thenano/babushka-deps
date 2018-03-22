@@ -69,7 +69,6 @@ meta 'default' do
   }
 end
 
-
 dep 'set-dock-magnification.default' do
   domain 'com.apple.dock'
   default 'magnification'
@@ -80,6 +79,13 @@ end
 dep 'auto-hide-dock.default' do
   domain 'com.apple.dock'
   default 'autohide'
+  value '1'
+  type 'integer'
+end
+
+dep 'auto-hide-menu-bar.default' do
+  domain 'Apple Global Domain'
+  default '_HIHideMenuBar'
   value '1'
   type 'integer'
 end
@@ -133,9 +139,17 @@ dep 'set-dark-theme.default' do
   type 'string'
 end
 
+dep 'set-dark-menu-bar-dock.default' do
+  domain 'Apple Global Domain'
+  default 'AppleAquaColorVariant'
+  value '6'
+  type 'integer'
+end
+
 dep 'all-osx-settings' do
   requires 'set-dock-magnification.default'
   requires 'auto-hide-dock.default'
+  requires 'auto-hide-menu-bar.default'
   requires 'disable-widgets.default'
   requires 'fast-key-repeat.default'
   requires 'fast-key-initial-repeat.default'
@@ -143,4 +157,5 @@ dep 'all-osx-settings' do
   requires 'set-ask-for-password-on-sleep.default'
   requires 'set-ask-for-password-on-sleep-delay.default'
   requires 'set-dark-theme.default'
+  requires 'set-dark-menu-bar-dock.default'
 end
