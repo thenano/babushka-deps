@@ -79,7 +79,7 @@ end
 
 dep 'auto-hide-dock.default' do
   domain 'com.apple.dock'
-  default 'magnification'
+  default 'autohide'
   value '1'
   type 'integer'
 end
@@ -128,7 +128,7 @@ end
 
 dep 'set-dark-theme.default' do
   domain 'Apple Global Domain'
-  default 'AppleInterfaceStule'
+  default 'AppleInterfaceStyle'
   value 'Dark'
   type 'string'
 end
