@@ -7,6 +7,8 @@ packaged_apps = %w{
   pyenv
   yarn
   kops
+  jq
+  fly
 }
 
 packaged_apps.each do |app|

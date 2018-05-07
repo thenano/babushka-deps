@@ -7,7 +7,7 @@ dep 'VirtualBox.installer' do
 end
 
 dep 'Google Chrome.app' do
-  source "http://dl.google.com/chrome/mac/dev/GoogleChrome.dmg"
+  source "https://dl.google.com/chrome/mac/stable/GoogleChrome.dmg"
 end
 
 dep 'Firefox.app' do
@@ -30,6 +30,10 @@ dep 'IntelliJ IDEA.app' do
   source 'https://download.jetbrains.com/idea/ideaIU-2017.3.5.dmg'
 end
 
+dep 'Postman.app' do
+  source 'https://dl.pstmn.io/download/latest/osx'
+end
+
 dep 'all-osx-apps' do
   requires 'VLC.app'
   requires 'VirtualBox.installer'
@@ -39,6 +43,7 @@ dep 'all-osx-apps' do
   requires 'Backup and Sync.app'
   requires 'Docker.app'
   requires 'IntelliJ IDEA.app'
+  requires 'Postman.app'
 end
 
 dep 'enable-full-disk-encryption' do
@@ -145,6 +150,8 @@ dep 'set-dark-menu-bar-dock.default' do
   value '6'
   type 'integer'
 end
+
+# set auto password on screensaver no delay
 
 dep 'all-osx-settings' do
   requires 'set-dock-magnification.default'
