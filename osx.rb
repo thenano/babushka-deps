@@ -7,7 +7,7 @@ dep 'VirtualBox.installer' do
 end
 
 dep 'Google Chrome.app' do
-  source "https://dl.google.com/chrome/mac/stable/GoogleChrome.dmg"
+  source "https://dl.google.com/chrome/mac/dev/GoogleChrome.dmg"
 end
 
 dep 'Firefox.app' do
