@@ -1,14 +1,14 @@
-dep 'MacArtha.hostname' do
+dep 'olive.hostname' do
   met? {
-    shell("hostname").include? "MacArtha"
+    shell("hostname").include? "olive"
   }
 
   meet {
-    shell("sudo scutil --set HostName MacArtha")
+    shell("sudo scutil --set HostName olive")
   }
 end
 
-dep 'MacArtha' do
+dep 'olive' do
   requires 'homebrew'
   requires 'all-packaged-apps'
   requires 'MacArtha.hostname'
