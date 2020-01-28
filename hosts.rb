@@ -1,17 +1,17 @@
-dep 'tw-robot.hostname' do
+dep 'MacArtha.hostname' do
   met? {
-    shell("hostname").include? "tw-robot"
+    shell("hostname").include? "MacArtha"
   }
 
   meet {
-    shell("sudo scutil --set HostName tw-robot")
+    shell("sudo scutil --set HostName MacArtha")
   }
 end
 
-dep 'tw-robot' do
+dep 'MacArtha' do
   requires 'homebrew'
   requires 'all-packaged-apps'
-  requires 'tw-robot.hostname'
+  requires 'MacArtha.hostname'
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
@@ -32,7 +32,7 @@ end
 dep 'MacFly' do
   requires 'homebrew'
   requires 'all-packaged-apps'
-  requires 'tw-robot.hostname'
+  requires 'MacFly.hostname'
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'
