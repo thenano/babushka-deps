@@ -8,7 +8,6 @@ packaged_apps = %w{
   yarn
   kops
   jq
-  fly
 }
 
 packaged_apps.each do |app|
@@ -43,16 +42,6 @@ dep 'awscli.bin' do
   provides 'aws'
 end
 
-dep 'kubernetes-cli.bin' do
-  installs 'kubernetes-cli'
-  provides 'kubectl'
-end
-
-dep 'kubernetes-helm.bin' do
-  installs 'kubernetes-helm'
-  provides 'helm'
-end
-
 dep 'bash-completion.bin' do
   met? {
     (shell('brew --prefix') + '/etc/bash_completion').p.exists?
@@ -66,8 +55,6 @@ dep 'all-packaged-apps' do
   requires 'bash-completion.bin'
   requires 'blackbox.bin'
   requires 'awscli.bin'
-  requires 'kubernetes-cli.bin'
-  requires 'kubernetes-helm.bin'
   requires 'nvm.bin'
   requires 'git.bin'
 end

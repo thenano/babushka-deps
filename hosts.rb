@@ -11,7 +11,7 @@ end
 dep 'olive' do
   requires 'homebrew'
   requires 'all-packaged-apps'
-  requires 'MacArtha.hostname'
+  requires 'olive.hostname'
   requires 'dots'
   requires 'all-osx-settings'
   requires 'all-osx-apps'

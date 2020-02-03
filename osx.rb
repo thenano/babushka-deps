@@ -2,16 +2,8 @@ dep 'VLC.app' do
   source "http://get.videolan.org/vlc/2.2.1/macosx/vlc-2.2.1.dmg"
 end
 
-dep 'VirtualBox.installer' do
-  source "http://download.virtualbox.org/virtualbox/5.0.4/VirtualBox-5.0.4-102546-OSX.dmg"
-end
-
 dep 'Google Chrome.app' do
   source "https://dl.google.com/chrome/mac/dev/GoogleChrome.dmg"
-end
-
-dep 'Firefox.app' do
-  source "https://www.mozilla.org/en-US/firefox/new/?scene=2"
 end
 
 dep 'Atom.app' do
@@ -27,7 +19,7 @@ dep 'Docker.app' do
 end
 
 dep 'IntelliJ IDEA.app' do
-  source 'https://download.jetbrains.com/idea/ideaIU-2017.3.5.dmg'
+  source 'https://download.jetbrains.com/idea/ideaIU-2019.3.2.dmg'
 end
 
 dep 'Postman.app' do
@@ -36,9 +28,7 @@ end
 
 dep 'all-osx-apps' do
   requires 'VLC.app'
-  requires 'VirtualBox.installer'
   requires 'Google Chrome.app'
-  requires 'Firefox.app'
   requires 'Atom.app'
   requires 'Backup and Sync.app'
   requires 'Docker.app'
